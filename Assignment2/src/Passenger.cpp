@@ -140,7 +140,7 @@ bool Passenger::isPhoneNumberEmpty()
 
 std::ostream& operator<<(std::ostream& output, Passenger& passenger)
 {
-	output << passenger.firstName << " " << passenger.lastName << "[" << passenger.address << "]" << " "<< "[" << passenger.phoneNumber << "]";
+	output << passenger.firstName << " " << passenger.lastName << " " << "[" << passenger.address << "]" << " "<< "[" << passenger.phoneNumber << "]";
 	return output;
 }
 

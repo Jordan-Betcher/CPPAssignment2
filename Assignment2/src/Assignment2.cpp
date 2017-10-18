@@ -8,14 +8,21 @@
 
 #include <iostream>
 #include "LinkedList.h"
+#include "Passenger.h"
 using namespace std;
 
 void runDeltaAirLines();
 
 int main()
 {
-	LinkedList<int> list;
-
+	LinkedList<Passenger> list;
+	Passenger p;
+	p.setFirstName("Bob");
+	p.setLastName("Fur");
+	p.setAddress("Not Here");
+	p.setPhoneNumber("+1134625");
+	list.insertFirst(p);
+	cout << list;
 	return 0;
 }
 
