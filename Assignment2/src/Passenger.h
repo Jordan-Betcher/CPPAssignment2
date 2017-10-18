@@ -17,6 +17,9 @@ class Passenger
 		std::string lastName;
 		std::string address;
 		std::string phoneNumber;
+
+		bool containsNumber(std::string);
+		bool isStringEmpty(std::string);
 	public:
 		Passenger();
 
@@ -30,10 +33,10 @@ class Passenger
 		void setAddress(std::string);
 		void setPhoneNumber(std::string);
 
-		void getFirstName(std::string);
-		void getLastName(std::string);
-		void getAddress(std::string);
-		void getPhoneNumber(std::string);
+		std::string getFirstName();
+		std::string getLastName();
+		std::string getAddress();
+		std::string getPhoneNumber();
 
 		bool isFirstNameEmpty();
 		bool isLastNameEmpty();
