@@ -40,18 +40,42 @@ int main()
 
 			cout << "Enter phone: ";
 			cin >> phoneNumber;
+
+			// Add to List
 		}
 		else if(command == "S")
 		{
+			string firstName, lastName;
 
+			cout << "Enter first name: ";
+			cin >> firstName;
+
+			cout << "Enter last name: ";
+			cin >> lastName;
+
+			// print information
 		}
 		else if(command == "D")
 		{
+			string flightNumber, firstName, lastName;
 
+			cout << "Enter flight number: ";
+			cin >> flightNumber;
+
+			cout << "Enter first name: ";
+			cin >> firstName;
+
+			cout << "Enter last name: ";
+			cin >> lastName;
+
+			//delete
 		}
 		else if(command == "L")
 		{
+			string flightNumber;
 
+			cout << "Enter flight number: ";
+			cin >> flightNumber;
 		}
 		else if(command == "Q")
 		{
