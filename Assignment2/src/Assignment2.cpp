@@ -11,9 +11,13 @@ using namespace std;
 
 int main()
 {
+	string flights[4] = {"100", "200", "300", "400"};
+
+
+
 	bool running = true;
 
-	cout << "***DELTA AITLINES ***" << endl;
+	cout << "***DELTA AIRLINES ***" << endl;
 	cout << "Please choose an operation:" << endl;
 
 	while(running)
@@ -90,5 +94,6 @@ int main()
 		cout << endl;
 
 	}
+
 	return 0;
 }
