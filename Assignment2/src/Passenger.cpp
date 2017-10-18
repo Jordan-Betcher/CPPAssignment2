@@ -103,7 +103,7 @@ std::string Passenger::getPhoneNumber()
 
 bool Passenger::isStringEmpty(std::string subjectString)
 {
-	if(subjectString == NULL)
+	if(subjectString.empty())
 	{
 		return true;
 	}
@@ -139,9 +139,9 @@ bool Passenger::isPhoneNumberEmpty()
 
 Passenger::~Passenger()
 {
-	this->firstName = NULL;
-	this->lastName = NULL;
-	this->address = NULL;
-	this->phoneNumber = NULL;
+	firstName = "";
+	lastName = "";
+	address = "";
+	phoneNumber = "";
 }
 
