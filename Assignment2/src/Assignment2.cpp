@@ -25,83 +25,83 @@ void runDeltaAirLines()
 
 
 
-		bool running = true;
+	bool running = true;
 
-		cout << "***DELTA AIRLINES ***" << endl;
-		cout << "Please choose an operation:" << endl;
+	cout << "***DELTA AIRLINES ***" << endl;
+	cout << "Please choose an operation:" << endl;
 
-		while(running)
+	while(running)
+	{
+		string command;
+		cout << "A(Add) | S(Search)| D(Delete) | L(List) | Q(Quit): ";
+		cin >> command;
+
+		if(command == "A")
 		{
-			string command;
-			cout << "A(Add) | S(Search)| D(Delete) | L(List) | Q(Quit): ";
-			cin >> command;
+			string flightNumber, firstName, lastName, address, phoneNumber;
 
-			if(command == "A")
-			{
-				string flightNumber, firstName, lastName, address, phoneNumber;
+			cout << "Enter flight number: ";
+			cin >> flightNumber;
 
-				cout << "Enter flight number: ";
-				cin >> flightNumber;
+			cout << "Enter first name: ";
+			cin >> firstName;
 
-				cout << "Enter first name: ";
-				cin >> firstName;
+			cout << "Enter last name: ";
+			cin >> lastName;
 
-				cout << "Enter last name: ";
-				cin >> lastName;
+			cout << "Enter address: ";
+			cin >> address;
 
-				cout << "Enter address: ";
-				cin >> address;
+			cout << "Enter phone: ";
+			cin >> phoneNumber;
 
-				cout << "Enter phone: ";
-				cin >> phoneNumber;
-
-				// Add to List
-			}
-			else if(command == "S")
-			{
-				string firstName, lastName;
-
-				cout << "Enter first name: ";
-				cin >> firstName;
-
-				cout << "Enter last name: ";
-				cin >> lastName;
-
-				// print information
-			}
-			else if(command == "D")
-			{
-				string flightNumber, firstName, lastName;
-
-				cout << "Enter flight number: ";
-				cin >> flightNumber;
-
-				cout << "Enter first name: ";
-				cin >> firstName;
-
-				cout << "Enter last name: ";
-				cin >> lastName;
-
-				//delete
-			}
-			else if(command == "L")
-			{
-				string flightNumber;
-
-				cout << "Enter flight number: ";
-				cin >> flightNumber;
-			}
-			else if(command == "Q")
-			{
-				running = false;
-			}
-			else
-			{
-				cout << "I don't have a command: " << command << endl;
-				cout << "Please choose an operation:";
-			}
-
-			cout << endl;
-
+			// Add to List
 		}
+		else if(command == "S")
+		{
+			string firstName, lastName;
+
+			cout << "Enter first name: ";
+			cin >> firstName;
+
+			cout << "Enter last name: ";
+			cin >> lastName;
+
+			// print information
+		}
+		else if(command == "D")
+		{
+			string flightNumber, firstName, lastName;
+
+			cout << "Enter flight number: ";
+			cin >> flightNumber;
+
+			cout << "Enter first name: ";
+			cin >> firstName;
+
+			cout << "Enter last name: ";
+			cin >> lastName;
+
+			//delete
+		}
+		else if(command == "L")
+		{
+			string flightNumber;
+
+			cout << "Enter flight number: ";
+			cin >> flightNumber;
+		}
+		else if(command == "Q")
+		{
+			running = false;
+		}
+		else
+		{
+			cout << "I don't have a command: " << command << endl;
+			cout << "Please choose an operation:";
+		}
+
+		cout << endl;
+
+	}
 }
