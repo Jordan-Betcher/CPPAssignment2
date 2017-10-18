@@ -6,6 +6,7 @@
  */
 
 #include "Passenger.h"
+#include <iostream>
 
 Passenger::Passenger()
 {
@@ -13,7 +14,7 @@ Passenger::Passenger()
 	
 }
 
-bool Passenger::containsNumber(std::string subjectString)
+bool Passenger::isNumberInString(std::string subjectString)
 {
 	for(int i = 0; i < subjectString.size(); i++)
 	{
@@ -41,12 +42,12 @@ bool Passenger::containsNumber(std::string subjectString)
 
 bool Passenger::isValidFirstName(std::string possibleFirstName)
 {
-	return containsNumber(possibleFirstName);
+	return isNumberInString(possibleFirstName);
 }
 
 bool Passenger::isValidLastName(std::string possibleLastName)
 {
-	return containsNumber(possibleLastName);
+	return isNumberInString(possibleLastName);
 }
 
 bool Passenger::isValidAddress(std::string possibleAddress)
@@ -135,6 +136,12 @@ bool Passenger::isAddressEmpty()
 bool Passenger::isPhoneNumberEmpty()
 {
 	return isStringEmpty(this->phoneNumber);
+}
+
+std::ostream& operator<<(std::ostream& output, Passenger& passenger)
+{
+	output << passenger.firstName << " " << passenger.lastName << "[" << passenger.address << "]" << " "<< "[" << passenger.phoneNumber << "]";
+	return output;
 }
 
 Passenger::~Passenger()

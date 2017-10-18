@@ -18,7 +18,7 @@ class Passenger
 		std::string address;
 		std::string phoneNumber;
 
-		bool containsNumber(std::string);
+		bool isNumberInString(std::string);
 		bool isStringEmpty(std::string);
 	public:
 		Passenger();
@@ -42,6 +42,8 @@ class Passenger
 		bool isLastNameEmpty();
 		bool isAddressEmpty();
 		bool isPhoneNumberEmpty();
+
+		friend std::ostream& operator<<(std::ostream& output, Passenger& point);
 
 		virtual ~Passenger();
 };
