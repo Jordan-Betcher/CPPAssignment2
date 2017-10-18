@@ -11,6 +11,43 @@ using namespace std;
 
 int main()
 {
-	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
+	bool running = true;
+
+	cout << "***DELTA AITLINES ***" << endl;
+	cout << "Please choose an operation:" << endl;
+
+	while(running)
+	{
+		string command;
+		cout << "A(Add) | S(Search)| D(Delete) | L(List) | Q(Quit): ";
+		cin >> command;
+
+		if(command == "A")
+		{
+
+		}
+		else if(command == "S")
+		{
+
+		}
+		else if(command == "D")
+		{
+
+		}
+		else if(command == "L")
+		{
+
+		}
+		else if(command == "Q")
+		{
+			running = false;
+		}
+		else
+		{
+			cout << "I don't have a command: " << command << endl;
+			cout << "Please choose an operation:" << endl;
+		}
+
+	}
 	return 0;
 }
