@@ -24,7 +24,22 @@ int main()
 
 		if(command == "A")
 		{
+			string flightNumber, firstName, lastName, address, phoneNumber;
 
+			cout << "Enter flight number: ";
+			cin >> flightNumber;
+
+			cout << "Enter first name: ";
+			cin >> firstName;
+
+			cout << "Enter last name: ";
+			cin >> lastName;
+
+			cout << "Enter address: ";
+			cin >> address;
+
+			cout << "Enter phone: ";
+			cin >> phoneNumber;
 		}
 		else if(command == "S")
 		{
@@ -45,8 +60,10 @@ int main()
 		else
 		{
 			cout << "I don't have a command: " << command << endl;
-			cout << "Please choose an operation:" << endl;
+			cout << "Please choose an operation:";
 		}
+
+		cout << endl;
 
 	}
 	return 0;
