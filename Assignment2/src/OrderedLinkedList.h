@@ -10,7 +10,8 @@
 
 #include "LinkedList.h"
 
-class OrderedLinkedList: public LinkedList
+template<class T>
+class OrderedLinkedList : public LinkedList<T>
 {
 	public:
 		OrderedLinkedList();
