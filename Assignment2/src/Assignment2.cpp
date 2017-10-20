@@ -40,6 +40,7 @@ void runDeltaAirLines()
 
 	cout << "***DELTA AIRLINES ***" << endl;
 	cout << "Please choose an operation:" << endl;
+	Passenger staticPassenger;
 
 	while(running)
 	{
@@ -49,7 +50,6 @@ void runDeltaAirLines()
 
 		if(command == "A")
 		{
-			Passenger test;
 
 			string flightNumber;
 			string flightPrompt =  "Enter flight number: ";
@@ -58,58 +58,59 @@ void runDeltaAirLines()
 
 			string firstName;
 			string firstNamePrompt = "Enter first name: ";
-			firstName = getInput(firstNamePrompt, test.isValidFirstName);
+			firstName = getInput(firstNamePrompt, staticPassenger.isValidFirstName);
 
 			string lastName;
 			string lastNamePrompt = "Enter last name: ";
-			lastName = getInput(firstNamePrompt, test.isValidLastName);
+			lastName = getInput(lastNamePrompt, staticPassenger.isValidLastName);
 
 			string address;
 			string addressPrompt = "Enter address: ";
-			address = getInput(firstNamePrompt, test.isValidAddress);
+			address = getInput(addressPrompt, staticPassenger.isValidAddress);
 
 			string phoneNumber;
 			string phoneNumberPrompt = "Enter phone: ";
-			phoneNumber = getInput(firstNamePrompt, test.isValidPhoneNumber);
+			phoneNumber = getInput(phoneNumberPrompt, staticPassenger.isValidPhoneNumber);
 
-			// Add to List
 			Passenger passenger(firstName, lastName, address, phoneNumber);
-			flights[flightNumber].insertFirst(passenger);
+			flights[flightNumber].insert(passenger);
 		}
 		else if(command == "S")
 		{
-			string firstName, lastName;
+			Passenger staticPassenger;
+			string firstName;
+			string firstNamePrompt = "Enter first name: ";
+			firstName = getInput(firstNamePrompt, staticPassenger.isValidFirstName);
 
-			cout << "Enter first name: ";
-			cin >> firstName;
-
-			cout << "Enter last name: ";
-			cin >> lastName;
+			string lastName;
+			string lastNamePrompt = "Enter last name: ";
+			lastName = getInput(lastNamePrompt, staticPassenger.isValidLastName);
 
 			// print information
 		}
 		else if(command == "D")
 		{
-			string flightNumber, firstName, lastName;
 
-			cout << "Enter flight number: ";
+			string flightNumber;
+			string flightPrompt =  "Enter flight number: ";
+			cout << flightPrompt;
 			cin >> flightNumber;
 
-			cout << "Enter first name: ";
-			cin >> firstName;
+			string firstName;
+			string firstNamePrompt = "Enter first name: ";
+			firstName = getInput(firstNamePrompt, staticPassenger.isValidFirstName);
 
-			cout << "Enter last name: ";
-			cin >> lastName;
+			string lastName;
+			string lastNamePrompt = "Enter last name: ";
+			lastName = getInput(lastNamePrompt, staticPassenger.isValidLastName);
 
 			//delete
 		}
 		else if(command == "L")
 		{
 			string flightNumber;
-
 			cout << "Enter flight number: ";
 			cin >> flightNumber;
-
 			cout << flights[flightNumber];
 		}
 		else if(command == "Q")
