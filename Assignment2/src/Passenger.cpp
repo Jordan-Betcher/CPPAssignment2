@@ -8,6 +8,14 @@
 #include "Passenger.h"
 #include <iostream>
 
+Passenger::Passenger()
+{
+	this->firstName = "";
+	this->lastName = "";
+	this->address = "";
+	this->phoneNumber = "";
+}
+
 Passenger::Passenger(std::string firstName, std::string lastName, std::string address, std::string phoneNumber)
 {
 	this->firstName = firstName;
