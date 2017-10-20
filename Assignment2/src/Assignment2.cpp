@@ -9,13 +9,9 @@
 #include <iostream>
 #include "OrderedLinkedList.h"
 #include "Passenger.h"
-#include <fstream>
 using namespace std;
 
 void runDeltaAirLines();
-string getInput(string, bool isValid(string));
-
-const std::string INPUTFILE = "";
 
 int main()
 {
@@ -110,32 +106,4 @@ void runDeltaAirLines()
 		cout << endl;
 
 	}
-}
-
-inline string getInput(string prompt, bool isValid(string))
-{
-	string input;
-
-	if(INPUTFILE.length() > 0)
-	{
-		ifstream inputFile;
-		inputFile.open(INPUTFILE);
-		inputFile >> input;
-		cout >> input;
-	}
-	else
-	{
-		cout << prompt;
-		cin >> input;
-
-	}
-
-	while(! isValid(input))
-	{
-		cout << "Your input was not valid, please try again." << endl;
-		cout << prompt;
-		cin >> input;
-	}
-
-	return input;
 }
