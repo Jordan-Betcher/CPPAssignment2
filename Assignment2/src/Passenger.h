@@ -21,7 +21,7 @@ class Passenger
 		bool isNumberInString(std::string);
 		bool isStringEmpty(std::string);
 	public:
-		Passenger();
+		Passenger(std::string, std::string, std::string, std::string);
 
 		bool isValidFirstName(std::string);
 		bool isValidLastName(std::string);

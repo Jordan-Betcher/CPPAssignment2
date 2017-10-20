@@ -8,10 +8,12 @@
 #include "Passenger.h"
 #include <iostream>
 
-Passenger::Passenger()
+Passenger::Passenger(std::string firstName, std::string lastName, std::string address, std::string phoneNumber)
 {
-	// TODO Auto-generated constructor stub
-	
+	this->firstName = firstName;
+	this->lastName = lastName;
+	this->address = address;
+	this->phoneNumber = phoneNumber;
 }
 
 bool Passenger::isNumberInString(std::string subjectString)
