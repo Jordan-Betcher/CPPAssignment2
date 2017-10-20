@@ -62,15 +62,15 @@ void runDeltaAirLines()
 
 			string lastName;
 			string lastNamePrompt = "Enter last name: ";
-			lastName = getInput(firstNamePrompt, test.isValidFirstName);
+			lastName = getInput(firstNamePrompt, test.isValidLastName);
 
 			string address;
 			string addressPrompt = "Enter address: ";
-			address = getInput(firstNamePrompt, test.isValidFirstName);
+			address = getInput(firstNamePrompt, test.isValidAddress);
 
 			string phoneNumber;
 			string phoneNumberPrompt = "Enter phone: ";
-			phoneNumber = getInput(firstNamePrompt, test.isValidFirstName);
+			phoneNumber = getInput(firstNamePrompt, test.isValidPhoneNumber);
 
 			// Add to List
 			Passenger passenger(firstName, lastName, address, phoneNumber);
