@@ -26,8 +26,7 @@ class LinkedList
 		int length();
 		T front();
 		T back();
-		void insertFirst(T&);
-		void insertLast(T&);
+		void insert(T&);
 		void deleteNode(T&);
 		void destroyList();
 
@@ -70,24 +69,7 @@ T LinkedList<T>::back()
 }
 
 template<class T>
-void LinkedList<T>::insertFirst(T& item)
-{
-	node<T> *temp = new node<T>;
-
-	temp->data = item;
-	temp->next = head;
-	head = temp;
-	count++;
-
-	if (last == NULL)
-	{
-		last = temp;
-	}
-
-}
-
-template<class T>
-void LinkedList<T>::insertLast(T& item)
+void LinkedList<T>::insert(T& item)
 {
 	node<T> *newNode = new node<T>;
 
