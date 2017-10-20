@@ -49,22 +49,28 @@ void runDeltaAirLines()
 
 		if(command == "A")
 		{
-			string flightNumber, firstName, lastName, address, phoneNumber;
+			Passenger test;
 
-			cout << "Enter flight number: ";
+			string flightNumber;
+			string flightPrompt =  "Enter flight number: ";
+			cout << flightPrompt;
 			cin >> flightNumber;
 
-			cout << "Enter first name: ";
-			cin >> firstName;
+			string firstName;
+			string firstNamePrompt = "Enter first name: ";
+			firstName = getInput(firstNamePrompt, test.isValidFirstName);
 
-			cout << "Enter last name: ";
-			cin >> lastName;
+			string lastName;
+			string lastNamePrompt = "Enter last name: ";
+			lastName = getInput(firstNamePrompt, test.isValidFirstName);
 
-			cout << "Enter address: ";
-			cin >> address;
+			string address;
+			string addressPrompt = "Enter address: ";
+			address = getInput(firstNamePrompt, test.isValidFirstName);
 
-			cout << "Enter phone: ";
-			cin >> phoneNumber;
+			string phoneNumber;
+			string phoneNumberPrompt = "Enter phone: ";
+			phoneNumber = getInput(firstNamePrompt, test.isValidFirstName);
 
 			// Add to List
 			Passenger passenger(firstName, lastName, address, phoneNumber);
