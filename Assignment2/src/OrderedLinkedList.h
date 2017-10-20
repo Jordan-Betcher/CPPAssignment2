@@ -18,4 +18,14 @@ class OrderedLinkedList : public LinkedList<T>
 		virtual ~OrderedLinkedList();
 };
 
+template<class T>
+inline OrderedLinkedList<T>::OrderedLinkedList()
+{
+}
+
+template<class T>
+inline OrderedLinkedList<T>::~OrderedLinkedList()
+{
+}
+
 #endif /* ORDEREDLINKEDLIST_H_ */
