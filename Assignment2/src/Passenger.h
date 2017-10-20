@@ -18,16 +18,16 @@ class Passenger
 		std::string address;
 		std::string phoneNumber;
 
-		bool isNumberInString(std::string);
 		bool isStringEmpty(std::string);
 	public:
 		Passenger();
 		Passenger(std::string, std::string, std::string, std::string);
 
-		bool isValidFirstName(std::string);
-		bool isValidLastName(std::string);
-		bool isValidAddress(std::string);
-		bool isValidPhoneNumber(std::string);
+		static bool isNumberInString(std::string);
+		static bool isValidFirstName(std::string);
+		static bool isValidLastName(std::string);
+		static bool isValidAddress(std::string);
+		static bool isValidPhoneNumber(std::string);
 
 		void setFirstName(std::string);
 		void setLastName(std::string);

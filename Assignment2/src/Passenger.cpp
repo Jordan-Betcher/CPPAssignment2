@@ -26,7 +26,8 @@ Passenger::Passenger(std::string firstName, std::string lastName, std::string ad
 
 bool Passenger::isNumberInString(std::string subjectString)
 {
-	for(int i = 0; i < subjectString.size(); i++)
+	int size = subjectString.size();
+	for(int i = 0; i < size; i++)
 	{
 		char letter = subjectString[i];
 
@@ -52,12 +53,12 @@ bool Passenger::isNumberInString(std::string subjectString)
 
 bool Passenger::isValidFirstName(std::string possibleFirstName)
 {
-	return isNumberInString(possibleFirstName);
+	return !isNumberInString(possibleFirstName);
 }
 
 bool Passenger::isValidLastName(std::string possibleLastName)
 {
-	return isNumberInString(possibleLastName);
+	return !isNumberInString(possibleLastName);
 }
 
 bool Passenger::isValidAddress(std::string possibleAddress)
