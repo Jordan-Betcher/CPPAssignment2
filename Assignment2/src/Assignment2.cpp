@@ -7,11 +7,13 @@
 //============================================================================
 
 #include <iostream>
+#include <map>
 #include "OrderedLinkedList.h"
 #include "Passenger.h"
 using namespace std;
 
 void runDeltaAirLines();
+string getInput(string, bool isValid(string));
 
 int main()
 {
@@ -22,10 +24,17 @@ int main()
 
 void runDeltaAirLines()
 {
-	string flights[4] = {"100", "200", "300", "400"};
+	map<string, OrderedLinkedList<Passenger>> flights;
 
+	OrderedLinkedList<Passenger> flight100;
+	OrderedLinkedList<Passenger> flight200;
+	OrderedLinkedList<Passenger> flight300;
+	OrderedLinkedList<Passenger> flight400;
 
-	OrderedLinkedList<Passenger> list;
+	flights["100"] = flight100;
+	flights["200"] = flight200;
+	flights["300"] = flight300;
+	flights["400"] = flight400;
 
 	bool running = true;
 
@@ -58,6 +67,8 @@ void runDeltaAirLines()
 			cin >> phoneNumber;
 
 			// Add to List
+			Passenger passenger(firstName, lastName, address, phoneNumber);
+			flights[flightNumber].insertFirst(passenger);
 		}
 		else if(command == "S")
 		{
@@ -92,6 +103,8 @@ void runDeltaAirLines()
 
 			cout << "Enter flight number: ";
 			cin >> flightNumber;
+
+			cout << flights[flightNumber];
 		}
 		else if(command == "Q")
 		{
@@ -106,4 +119,22 @@ void runDeltaAirLines()
 		cout << endl;
 
 	}
+}
+
+inline string getInput(string prompt, bool isValid(string))
+{
+	string input;
+
+	cout << prompt;
+	cin >> input;
+
+	while(! isValid(input))
+	{
+		cout << "The input was not valid." << endl;
+		cout << prompt;
+		cin >> input;
+	}
+
+	return input;
+
 }
