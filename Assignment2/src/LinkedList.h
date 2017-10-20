@@ -30,7 +30,6 @@ class LinkedList
 		void insertLast(T&);
 		void deleteNode(T&);
 		void destroyList();
-		LinkedList<T>& operator=(LinkedList<T>&);
 
 		template<class U>
 		friend ostream& operator<<(ostream&, LinkedList<U>&);
@@ -174,16 +173,6 @@ void LinkedList<T>::destroyList()
 
 	last = NULL;
 	count = 0;
-}
-
-template<class T>
-LinkedList<T>& LinkedList<T>::operator=(LinkedList<T>& list)
-{
-	if (this != &list)
-	{
-		copylist(list);
-	}
-	return *this;
 }
 
 template<class T>
