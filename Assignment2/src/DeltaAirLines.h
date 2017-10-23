@@ -22,12 +22,12 @@ class DeltaAirLines
 		std::list<std::string> mFlightNumbers;
 		Passenger mStaticPassenger;
 	public:
-		DeltaAirLines(std::list<std::string>);
+		DeltaAirLines(std::list<std::string> flightNumbers);
 		void addPassenger();
 		void searchForPassenger();
 		void deletePassenger();
 		void listPassengers();
-		std::string getValidInput(std::string, bool isValid(std::string));
+		std::string getValidInput(std::string prompt, bool isValid(std::string));
 		virtual ~DeltaAirLines();
 };
 

@@ -32,12 +32,12 @@ Passenger::Passenger(std::string firstName, std::string lastName, std::string ad
 	this->phoneNumber = phoneNumber;
 }
 
-bool Passenger::isNumberInString(std::string subjectString)
+bool Passenger::isNumberInString(std::string stringToCheck)
 {
-	int size = subjectString.size();
+	int size = stringToCheck.size();
 	for(int i = 0; i < size; i++)
 	{
-		char letter = subjectString[i];
+		char letter = stringToCheck[i];
 
 		if(
 			   letter == '1'
@@ -121,13 +121,13 @@ std::string Passenger::getPhoneNumber()
 	return this->phoneNumber;
 }
 
-bool Passenger::isStringEmpty(std::string subjectString)
+bool Passenger::isStringEmpty(std::string stringToCheck)
 {
-	if(subjectString.empty())
+	if(stringToCheck.empty())
 	{
 		return true;
 	}
-	else if(subjectString.size() <= 0)
+	else if(stringToCheck.size() <= 0)
 	{
 		return true;
 	}

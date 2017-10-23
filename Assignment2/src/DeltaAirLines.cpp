@@ -46,7 +46,7 @@ void DeltaAirLines::addPassenger()
 	        mStaticPassenger.isValidPhoneNumber);
 
 	Passenger passenger(firstName, lastName, address, phoneNumber);
-	mFlights[flightNumber].insert(passenger);
+	mFlights[flightNumber].insertNode(passenger);
 }
 
 void DeltaAirLines::searchForPassenger()
@@ -63,20 +63,20 @@ void DeltaAirLines::searchForPassenger()
 
 	for (string flightNumber : mFlightNumbers)
 	{
-		if (mFlights[flightNumber].has(comparablePassenger))
+		if (mFlights[flightNumber].hasNode(comparablePassenger))
 		{
 			cout << "Flight number: " << flightNumber << endl;
 			cout << "First name: "
-			        << mFlights[flightNumber].search(comparablePassenger).firstName
+			        << mFlights[flightNumber].searchForNode(comparablePassenger).firstName
 			        << endl;
 			cout << "Last name: "
-			        << mFlights[flightNumber].search(comparablePassenger).lastName
+			        << mFlights[flightNumber].searchForNode(comparablePassenger).lastName
 			        << endl;
 			cout << "Address: "
-			        << mFlights[flightNumber].search(comparablePassenger).address
+			        << mFlights[flightNumber].searchForNode(comparablePassenger).address
 			        << endl;
 			cout << "Phone: "
-			        << mFlights[flightNumber].search(comparablePassenger).phoneNumber
+			        << mFlights[flightNumber].searchForNode(comparablePassenger).phoneNumber
 			        << endl;
 
 			break;

@@ -27,12 +27,12 @@ class LinkedList
 		int getLength();
 		T getFront();
 		T getBack();
-		void insertNode(T&);
-		void deleteNode(T&);
+		void insertNode(T& itemToInsert);
+		void deleteNode(T& itemToDelete);
 		void destroyList();
 
 		template<class U>
-		friend ostream& operator<<(ostream&, LinkedList<U>&);
+		friend ostream& operator<<(ostream& output, LinkedList<U>& list);
 
 		~LinkedList();
 };
@@ -70,11 +70,11 @@ T LinkedList<T>::getBack()
 }
 
 template<class T>
-void LinkedList<T>::insertNode(T& item)
+void LinkedList<T>::insertNode(T& itemToInsert)
 {
 	node<T> *newNode = new node<T>;
 
-	newNode->data = item;
+	newNode->data = itemToInsert;
 	newNode->pNext = NULL;
 
 	if (pHead == NULL)
@@ -92,7 +92,7 @@ void LinkedList<T>::insertNode(T& item)
 }
 
 template<class T>
-void LinkedList<T>::deleteNode(T& item)
+void LinkedList<T>::deleteNode(T& itemToDelete)
 {
 	if (pHead == NULL)
 	{
@@ -100,7 +100,7 @@ void LinkedList<T>::deleteNode(T& item)
 	}
 	else
 	{
-		if (pHead->data == item)
+		if (pHead->data == itemToDelete)
 		{
 			node<T>* headPointer = pHead;
 
@@ -119,7 +119,7 @@ void LinkedList<T>::deleteNode(T& item)
 			node<T>* pointerBefore = pHead;
 			node<T>* pointerToDelete = pointerBefore->pNext;
 
-			while (pointerToDelete != NULL && pointerToDelete->data != item)
+			while (pointerToDelete != NULL && pointerToDelete->data != itemToDelete)
 			{
 				pointerBefore = pointerToDelete;
 				pointerToDelete = pointerToDelete->pNext;

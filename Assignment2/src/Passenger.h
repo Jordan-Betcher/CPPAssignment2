@@ -14,7 +14,7 @@ class Passenger
 {
 	private:
 
-		bool isStringEmpty(std::string);
+		bool isStringEmpty(std::string stringToCheck);
 	public:
 		std::string firstName;
 		std::string lastName;
@@ -22,19 +22,19 @@ class Passenger
 		std::string phoneNumber;
 
 		Passenger();
-		Passenger(std::string, std::string);
-		Passenger(std::string, std::string, std::string, std::string);
+		Passenger(std::string firstName, std::string lastName);
+		Passenger(std::string firstName, std::string lastName, std::string address, std::string phoneNumber);
 
-		static bool isNumberInString(std::string);
-		static bool isValidFirstName(std::string);
-		static bool isValidLastName(std::string);
-		static bool isValidAddress(std::string);
-		static bool isValidPhoneNumber(std::string);
+		static bool isNumberInString(std::string stringToCheck);
+		static bool isValidFirstName(std::string possibleFirstName);
+		static bool isValidLastName(std::string possibleLastName);
+		static bool isValidAddress(std::string possibleAddress);
+		static bool isValidPhoneNumber(std::string possiblePhoneNumber);
 
-		void setFirstName(std::string);
-		void setLastName(std::string);
-		void setAddress(std::string);
-		void setPhoneNumber(std::string);
+		void setFirstName(std::string firstName);
+		void setLastName(std::string lastName);
+		void setAddress(std::string address);
+		void setPhoneNumber(std::string phoneNumber);
 
 		std::string getFirstName();
 		std::string getLastName();
@@ -46,11 +46,11 @@ class Passenger
 		bool isAddressEmpty();
 		bool isPhoneNumberEmpty();
 
-		friend std::ostream& operator<<(std::ostream&, Passenger&);
-		friend bool operator ==(Passenger&, Passenger&);
-		friend bool operator !=(Passenger&, Passenger&);
-		friend bool operator >(Passenger&, Passenger&);
-		friend bool operator <(Passenger&, Passenger&);
+		friend std::ostream& operator<<(std::ostream& output, Passenger& passenger);
+		friend bool operator ==(Passenger& firstPassenger, Passenger& secondPassenger);
+		friend bool operator !=(Passenger& firstPassenger, Passenger& secondPassenger);
+		friend bool operator >(Passenger& firstPassenger, Passenger& secondPassenger);
+		friend bool operator <(Passenger& firstPassenger, Passenger& secondPassenger);
 
 		virtual ~Passenger();
 };
