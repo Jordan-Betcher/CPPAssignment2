@@ -168,7 +168,7 @@ bool operator==(Passenger& firstPassenger, Passenger& secondPassenger)
 	bool firstNameMatch = (firstPassenger.firstName == secondPassenger.firstName);
 	bool lastNameMatch = (firstPassenger.lastName == secondPassenger.lastName);
 	bool sameName = (firstNameMatch && lastNameMatch);
-	return false;
+	return sameName;
 }
 
 bool operator!=(Passenger& firstPassenger, Passenger& secondPassenger)
