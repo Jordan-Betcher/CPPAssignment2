@@ -155,6 +155,14 @@ std::ostream& operator<<(std::ostream& output, Passenger& passenger)
 	return output;
 }
 
+bool operator==(Passenger& firstPassenger, Passenger& secondPassenger)
+{
+	bool firstNameMatch = (firstPassenger.firstName == secondPassenger.firstName);
+	bool lastNameMatch = (firstPassenger.lastName == secondPassenger.lastName);
+	bool sameName = (firstNameMatch && lastNameMatch);
+	return false;
+}
+
 Passenger::~Passenger()
 {
 	firstName = "";

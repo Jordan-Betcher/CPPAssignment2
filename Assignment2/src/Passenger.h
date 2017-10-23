@@ -44,7 +44,8 @@ class Passenger
 		bool isAddressEmpty();
 		bool isPhoneNumberEmpty();
 
-		friend std::ostream& operator<<(std::ostream& output, Passenger& point);
+		friend std::ostream& operator<<(std::ostream&, Passenger&);
+		friend bool operator ==(Passenger&, Passenger&);
 
 		virtual ~Passenger();
 };
