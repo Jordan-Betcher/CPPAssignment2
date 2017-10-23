@@ -14,18 +14,8 @@ template<class T>
 class OrderedLinkedList : public LinkedList<T>
 {
 	public:
-		OrderedLinkedList();
-		virtual ~OrderedLinkedList();
+		OrderedLinkedList(){};
+		~OrderedLinkedList(){};
 };
-
-template<class T>
-inline OrderedLinkedList<T>::OrderedLinkedList()
-{
-}
-
-template<class T>
-inline OrderedLinkedList<T>::~OrderedLinkedList()
-{
-}
 
 #endif /* ORDEREDLINKEDLIST_H_ */
