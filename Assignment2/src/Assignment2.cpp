@@ -10,126 +10,51 @@
 #include <map>
 #include "OrderedLinkedList.h"
 #include "Passenger.h"
+#include "DeltaAirLines.h"
+#include <list>
 using namespace std;
 
 void runDeltaAirLines();
-string getInput(string, bool isValid(string));
 
 int main()
 {
 	runDeltaAirLines();
-
 	return 0;
 }
 
 void runDeltaAirLines()
 {
-	map<string, OrderedLinkedList<Passenger>> flights;
-	string flightNumbers[4] = {"100","200","300","400"};
-
-	OrderedLinkedList<Passenger> flight100;
-	OrderedLinkedList<Passenger> flight200;
-	OrderedLinkedList<Passenger> flight300;
-	OrderedLinkedList<Passenger> flight400;
-
-	flights[flightNumbers[0]] = flight100;
-	flights[flightNumbers[1]] = flight200;
-	flights[flightNumbers[2]] = flight300;
-	flights[flightNumbers[3]] = flight400;
+	list<string> flightNumbers = { "100", "200", "300", "400" };
+	DeltaAirLines airLines(flightNumbers);
 
 	bool running = true;
 
 	cout << "***DELTA AIRLINES ***" << endl;
 	cout << "Please choose an operation:" << endl;
-	Passenger staticPassenger;
 
-	while(running)
+	while (running)
 	{
 		string command;
 		cout << "A(Add) | S(Search)| D(Delete) | L(List) | Q(Quit): ";
 		cin >> command;
 
-		if(command == "A")
+		if (command == "A")
 		{
-
-			string flightNumber;
-			string flightPrompt =  "Enter flight number: ";
-			cout << flightPrompt;
-			cin >> flightNumber;
-
-			string firstName;
-			string firstNamePrompt = "Enter first name: ";
-			firstName = getInput(firstNamePrompt, staticPassenger.isValidFirstName);
-
-			string lastName;
-			string lastNamePrompt = "Enter last name: ";
-			lastName = getInput(lastNamePrompt, staticPassenger.isValidLastName);
-
-			string address;
-			string addressPrompt = "Enter address: ";
-			address = getInput(addressPrompt, staticPassenger.isValidAddress);
-
-			string phoneNumber;
-			string phoneNumberPrompt = "Enter phone: ";
-			phoneNumber = getInput(phoneNumberPrompt, staticPassenger.isValidPhoneNumber);
-
-			Passenger passenger(firstName, lastName, address, phoneNumber);
-			flights[flightNumber].insert(passenger);
+			airLines.addAction();
 		}
-		else if(command == "S")
+		else if (command == "S")
 		{
-			string firstName;
-			string firstNamePrompt = "Enter first name: ";
-			firstName = getInput(firstNamePrompt, staticPassenger.isValidFirstName);
-
-			string lastName;
-			string lastNamePrompt = "Enter last name: ";
-			lastName = getInput(lastNamePrompt, staticPassenger.isValidLastName);
-
-			Passenger comparablePassenger(firstName, lastName);
-
-			for(string flightNumber : flightNumbers)
-			{
-				if(flights[flightNumber].has(comparablePassenger))
-				{
-					cout << "Flight number: " << flightNumber << endl;
-					cout << "First name: " << flights[flightNumber].search(comparablePassenger).firstName << endl;
-					cout << "Last name: " << flights[flightNumber].search(comparablePassenger).lastName << endl;
-					cout << "Address: " << flights[flightNumber].search(comparablePassenger).address << endl;
-					cout << "Phone: " << flights[flightNumber].search(comparablePassenger).phoneNumber << endl;
-
-					break;
-				}
-			}
-
+			airLines.searchAction();
 		}
-		else if(command == "D")
+		else if (command == "D")
 		{
-
-			string flightNumber;
-			string flightPrompt =  "Enter flight number: ";
-			cout << flightPrompt;
-			cin >> flightNumber;
-
-			string firstName;
-			string firstNamePrompt = "Enter first name: ";
-			firstName = getInput(firstNamePrompt, staticPassenger.isValidFirstName);
-
-			string lastName;
-			string lastNamePrompt = "Enter last name: ";
-			lastName = getInput(lastNamePrompt, staticPassenger.isValidLastName);
-
-			Passenger passengerToDelete(firstName, lastName);
-			flights[flightNumber].deleteNode(passengerToDelete);
+			airLines.deleteAction();
 		}
-		else if(command == "L")
+		else if (command == "L")
 		{
-			string flightNumber;
-			cout << "Enter flight number: ";
-			cin >> flightNumber;
-			cout << flights[flightNumber];
+			airLines.listAction();
 		}
-		else if(command == "Q")
+		else if (command == "Q")
 		{
 			running = false;
 		}
@@ -142,22 +67,4 @@ void runDeltaAirLines()
 		cout << endl;
 
 	}
-}
-
-inline string getInput(string prompt, bool isValid(string))
-{
-	string input;
-
-	cout << prompt;
-	cin >> input;
-
-	while(! isValid(input))
-	{
-		cout << "The input was not valid." << endl;
-		cout << prompt;
-		cin >> input;
-	}
-
-	return input;
-
 }
