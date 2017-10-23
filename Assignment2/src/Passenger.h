@@ -21,6 +21,7 @@ class Passenger
 		bool isStringEmpty(std::string);
 	public:
 		Passenger();
+		Passenger(std::string, std::string);
 		Passenger(std::string, std::string, std::string, std::string);
 
 		static bool isNumberInString(std::string);
@@ -46,6 +47,7 @@ class Passenger
 
 		friend std::ostream& operator<<(std::ostream&, Passenger&);
 		friend bool operator ==(Passenger&, Passenger&);
+		friend bool operator !=(Passenger&, Passenger&);
 
 		virtual ~Passenger();
 };

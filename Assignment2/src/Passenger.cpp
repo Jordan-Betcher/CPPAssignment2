@@ -16,6 +16,14 @@ Passenger::Passenger()
 	this->phoneNumber = "";
 }
 
+Passenger::Passenger(std::string firstName, std::string lastName)
+{
+	this->firstName = firstName;
+	this->lastName = lastName;
+	this->address = "";
+	this->phoneNumber = "";
+}
+
 Passenger::Passenger(std::string firstName, std::string lastName, std::string address, std::string phoneNumber)
 {
 	this->firstName = firstName;
@@ -161,6 +169,12 @@ bool operator==(Passenger& firstPassenger, Passenger& secondPassenger)
 	bool lastNameMatch = (firstPassenger.lastName == secondPassenger.lastName);
 	bool sameName = (firstNameMatch && lastNameMatch);
 	return false;
+}
+
+bool operator!=(Passenger& firstPassenger, Passenger& secondPassenger)
+{
+	bool samePerson = (firstPassenger == secondPassenger);
+	return (!samePerson);
 }
 
 Passenger::~Passenger()
