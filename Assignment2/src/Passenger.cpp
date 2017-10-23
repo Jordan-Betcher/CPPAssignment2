@@ -177,6 +177,16 @@ bool operator!=(Passenger& firstPassenger, Passenger& secondPassenger)
 	return (!samePerson);
 }
 
+bool operator<(Passenger& firstPassenger, Passenger& secondPassenger)
+{
+	return (firstPassenger.lastName < secondPassenger.lastName);
+}
+
+bool operator>(Passenger& firstPassenger, Passenger& secondPassenger)
+{
+	return (firstPassenger.lastName > secondPassenger.lastName);
+}
+
 Passenger::~Passenger()
 {
 	firstName = "";

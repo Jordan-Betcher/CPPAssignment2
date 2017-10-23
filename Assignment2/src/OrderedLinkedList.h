@@ -34,7 +34,7 @@ OrderedLinkedList<T>::OrderedLinkedList()
 template<class T>
 void OrderedLinkedList<T>::deleteNode(T& itemToDelete)
 {
-		this->deleteNode(itemToDelete);
+	this->deleteNode(itemToDelete);
 }
 
 template<class T>
@@ -52,8 +52,38 @@ void OrderedLinkedList<T>::insert(T& itemToInsert)
 	}
 	else
 	{
-		this->last->next = newNode;
-		this->last = newNode;
+
+		if (this->head->data > itemToInsert)
+		{
+			node<T>* nextNode = this->head;
+			this->head = newNode;
+			this->head->next = nextNode;
+		}
+		else
+		{
+			node<T>* pointerBefore = this->head;
+			node<T>* pointerToFind = pointerBefore->next;
+
+			while (pointerToFind != NULL
+					&& pointerToFind->data < itemToInsert)
+			{
+				pointerBefore = pointerToFind;
+				pointerToFind = pointerToFind->next;
+			}
+
+			if (pointerToFind != NULL)
+			{
+				pointerBefore->next = newNode;
+				newNode->next = pointerToFind;
+				delete pointerToFind;
+
+			}
+			else
+			{
+				this->last->next = newNode;
+				this->last = newNode;
+			}
+		}
 	}
 
 	this->count++;

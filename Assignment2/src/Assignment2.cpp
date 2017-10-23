@@ -25,16 +25,17 @@ int main()
 void runDeltaAirLines()
 {
 	map<string, OrderedLinkedList<Passenger>> flights;
+	string flightNumbers[4] = {"100","200","300","400"};
 
 	OrderedLinkedList<Passenger> flight100;
 	OrderedLinkedList<Passenger> flight200;
 	OrderedLinkedList<Passenger> flight300;
 	OrderedLinkedList<Passenger> flight400;
 
-	flights["100"] = flight100;
-	flights["200"] = flight200;
-	flights["300"] = flight300;
-	flights["400"] = flight400;
+	flights[flightNumbers[0]] = flight100;
+	flights[flightNumbers[1]] = flight200;
+	flights[flightNumbers[2]] = flight300;
+	flights[flightNumbers[3]] = flight400;
 
 	bool running = true;
 
@@ -77,7 +78,6 @@ void runDeltaAirLines()
 		}
 		else if(command == "S")
 		{
-			Passenger staticPassenger;
 			string firstName;
 			string firstNamePrompt = "Enter first name: ";
 			firstName = getInput(firstNamePrompt, staticPassenger.isValidFirstName);
@@ -86,7 +86,22 @@ void runDeltaAirLines()
 			string lastNamePrompt = "Enter last name: ";
 			lastName = getInput(lastNamePrompt, staticPassenger.isValidLastName);
 
-			// print information
+			Passenger comparablePassenger(firstName, lastName);
+
+			for(string flightNumber : flightNumbers)
+			{
+				if(flights[flightNumber].has(comparablePassenger))
+				{
+					cout << "Flight number: " << flightNumber << endl;
+					cout << "First name: " << flights[flightNumber].search(comparablePassenger).firstName << endl;
+					cout << "Last name: " << flights[flightNumber].search(comparablePassenger).lastName << endl;
+					cout << "Address: " << flights[flightNumber].search(comparablePassenger).address << endl;
+					cout << "Phone: " << flights[flightNumber].search(comparablePassenger).phoneNumber << endl;
+
+					break;
+				}
+			}
+
 		}
 		else if(command == "D")
 		{
@@ -104,7 +119,8 @@ void runDeltaAirLines()
 			string lastNamePrompt = "Enter last name: ";
 			lastName = getInput(lastNamePrompt, staticPassenger.isValidLastName);
 
-			//delete
+			Passenger passengerToDelete(firstName, lastName);
+			flights[flightNumber].deleteNode(passengerToDelete);
 		}
 		else if(command == "L")
 		{

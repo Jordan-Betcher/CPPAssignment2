@@ -13,13 +13,14 @@
 class Passenger
 {
 	private:
+
+		bool isStringEmpty(std::string);
+	public:
 		std::string firstName;
 		std::string lastName;
 		std::string address;
 		std::string phoneNumber;
 
-		bool isStringEmpty(std::string);
-	public:
 		Passenger();
 		Passenger(std::string, std::string);
 		Passenger(std::string, std::string, std::string, std::string);
@@ -48,6 +49,8 @@ class Passenger
 		friend std::ostream& operator<<(std::ostream&, Passenger&);
 		friend bool operator ==(Passenger&, Passenger&);
 		friend bool operator !=(Passenger&, Passenger&);
+		friend bool operator >(Passenger&, Passenger&);
+		friend bool operator <(Passenger&, Passenger&);
 
 		virtual ~Passenger();
 };
