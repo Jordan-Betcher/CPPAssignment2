@@ -18,16 +18,16 @@
 class DeltaAirLines
 {
 	private:
-		map<string, OrderedLinkedList<Passenger>> flights;
-		std::list<std::string> flightNumbers;
-		Passenger staticPassenger;
+		map<string, OrderedLinkedList<Passenger>> mFlights;
+		std::list<std::string> mFlightNumbers;
+		Passenger mStaticPassenger;
 	public:
 		DeltaAirLines(std::list<std::string>);
-		void addAction();
-		void searchAction();
-		void deleteAction();
-		void listAction();
-		std::string getInput(std::string, bool isValid(std::string));
+		void addPassenger();
+		void searchForPassenger();
+		void deletePassenger();
+		void listPassengers();
+		std::string getValidInput(std::string, bool isValid(std::string));
 		virtual ~DeltaAirLines();
 };
 

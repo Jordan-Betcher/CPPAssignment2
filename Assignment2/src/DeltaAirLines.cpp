@@ -11,17 +11,17 @@
 
 DeltaAirLines::DeltaAirLines(list<std::string> flightNumbers)
 {
-	this->flightNumbers = flightNumbers;
+	this->mFlightNumbers = flightNumbers;
 
 	for (std::string flightNumber : flightNumbers)
 	{
 		OrderedLinkedList<Passenger> flight;
-		this->flights[flightNumber] = flight;
+		this->mFlights[flightNumber] = flight;
 	}
 
 }
 
-void DeltaAirLines::addAction()
+void DeltaAirLines::addPassenger()
 {
 	string flightNumber;
 	string flightPrompt = "Enter flight number: ";
@@ -30,53 +30,53 @@ void DeltaAirLines::addAction()
 
 	string firstName;
 	string firstNamePrompt = "Enter first name: ";
-	firstName = getInput(firstNamePrompt, staticPassenger.isValidFirstName);
+	firstName = getValidInput(firstNamePrompt, mStaticPassenger.isValidFirstName);
 
 	string lastName;
 	string lastNamePrompt = "Enter last name: ";
-	lastName = getInput(lastNamePrompt, staticPassenger.isValidLastName);
+	lastName = getValidInput(lastNamePrompt, mStaticPassenger.isValidLastName);
 
 	string address;
 	string addressPrompt = "Enter address: ";
-	address = getInput(addressPrompt, staticPassenger.isValidAddress);
+	address = getValidInput(addressPrompt, mStaticPassenger.isValidAddress);
 
 	string phoneNumber;
 	string phoneNumberPrompt = "Enter phone: ";
-	phoneNumber = getInput(phoneNumberPrompt,
-	        staticPassenger.isValidPhoneNumber);
+	phoneNumber = getValidInput(phoneNumberPrompt,
+	        mStaticPassenger.isValidPhoneNumber);
 
 	Passenger passenger(firstName, lastName, address, phoneNumber);
-	flights[flightNumber].insert(passenger);
+	mFlights[flightNumber].insert(passenger);
 }
 
-void DeltaAirLines::searchAction()
+void DeltaAirLines::searchForPassenger()
 {
 	string firstName;
 	string firstNamePrompt = "Enter first name: ";
-	firstName = getInput(firstNamePrompt, staticPassenger.isValidFirstName);
+	firstName = getValidInput(firstNamePrompt, mStaticPassenger.isValidFirstName);
 
 	string lastName;
 	string lastNamePrompt = "Enter last name: ";
-	lastName = getInput(lastNamePrompt, staticPassenger.isValidLastName);
+	lastName = getValidInput(lastNamePrompt, mStaticPassenger.isValidLastName);
 
 	Passenger comparablePassenger(firstName, lastName);
 
-	for (string flightNumber : flightNumbers)
+	for (string flightNumber : mFlightNumbers)
 	{
-		if (flights[flightNumber].has(comparablePassenger))
+		if (mFlights[flightNumber].has(comparablePassenger))
 		{
 			cout << "Flight number: " << flightNumber << endl;
 			cout << "First name: "
-			        << flights[flightNumber].search(comparablePassenger).firstName
+			        << mFlights[flightNumber].search(comparablePassenger).firstName
 			        << endl;
 			cout << "Last name: "
-			        << flights[flightNumber].search(comparablePassenger).lastName
+			        << mFlights[flightNumber].search(comparablePassenger).lastName
 			        << endl;
 			cout << "Address: "
-			        << flights[flightNumber].search(comparablePassenger).address
+			        << mFlights[flightNumber].search(comparablePassenger).address
 			        << endl;
 			cout << "Phone: "
-			        << flights[flightNumber].search(comparablePassenger).phoneNumber
+			        << mFlights[flightNumber].search(comparablePassenger).phoneNumber
 			        << endl;
 
 			break;
@@ -84,7 +84,7 @@ void DeltaAirLines::searchAction()
 	}
 }
 
-void DeltaAirLines::deleteAction()
+void DeltaAirLines::deletePassenger()
 {
 	string flightNumber;
 	string flightPrompt = "Enter flight number: ";
@@ -93,26 +93,26 @@ void DeltaAirLines::deleteAction()
 
 	string firstName;
 	string firstNamePrompt = "Enter first name: ";
-	firstName = getInput(firstNamePrompt, staticPassenger.isValidFirstName);
+	firstName = getValidInput(firstNamePrompt, mStaticPassenger.isValidFirstName);
 
 	string lastName;
 	string lastNamePrompt = "Enter last name: ";
-	lastName = getInput(lastNamePrompt, staticPassenger.isValidLastName);
+	lastName = getValidInput(lastNamePrompt, mStaticPassenger.isValidLastName);
 
 	Passenger passengerToDelete(firstName, lastName);
-	flights[flightNumber].deleteNode(passengerToDelete);
+	mFlights[flightNumber].deleteNode(passengerToDelete);
 
 }
 
-void DeltaAirLines::listAction()
+void DeltaAirLines::listPassengers()
 {
 	string flightNumber;
 	cout << "Enter flight number: ";
 	cin >> flightNumber;
-	cout << flights[flightNumber];
+	cout << mFlights[flightNumber];
 }
 
-string DeltaAirLines::getInput(string prompt, bool isValid(string))
+string DeltaAirLines::getValidInput(string prompt, bool isValid(string))
 {
 	string input;
 

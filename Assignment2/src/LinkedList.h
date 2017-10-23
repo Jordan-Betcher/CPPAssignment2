@@ -8,7 +8,7 @@ template<class T>
 struct node
 {
 		T data;
-		node* next;
+		node* pNext;
 };
 
 template<class T>
@@ -19,14 +19,15 @@ class LinkedList
 
 	protected:
 		int count;
-		node<T> *head, *last;
+		node<T> *pHead;
+		node<T> *pLast;
 	public:
 		LinkedList();
 		bool isEmpty();
-		int length();
-		T front();
-		T back();
-		void insert(T&);
+		int getLength();
+		T getFront();
+		T getBack();
+		void insertNode(T&);
 		void deleteNode(T&);
 		void destroyList();
 
@@ -39,52 +40,52 @@ class LinkedList
 template<class T>
 LinkedList<T>::LinkedList()
 {
-	head = NULL;
-	last = NULL;
+	pHead = NULL;
+	pLast = NULL;
 	count = 0;
 }
 
 template<class T>
 bool LinkedList<T>::isEmpty()
 {
-	return head == NULL;
+	return pHead == NULL;
 }
 
 template<class T>
-int LinkedList<T>::length()
+int LinkedList<T>::getLength()
 {
 	return count;
 }
 
 template<class T>
-T LinkedList<T>::front()
+T LinkedList<T>::getFront()
 {
-	return head->data;
+	return pHead->data;
 }
 
 template<class T>
-T LinkedList<T>::back()
+T LinkedList<T>::getBack()
 {
-	return last->data;
+	return pLast->data;
 }
 
 template<class T>
-void LinkedList<T>::insert(T& item)
+void LinkedList<T>::insertNode(T& item)
 {
 	node<T> *newNode = new node<T>;
 
 	newNode->data = item;
-	newNode->next = NULL;
+	newNode->pNext = NULL;
 
-	if (head == NULL)
+	if (pHead == NULL)
 	{
-		head = newNode;
-		last = newNode;
+		pHead = newNode;
+		pLast = newNode;
 	}
 	else
 	{
-		last->next = newNode;
-		last = newNode;
+		pLast->pNext = newNode;
+		pLast = newNode;
 	}
 
 	count++;
@@ -93,46 +94,46 @@ void LinkedList<T>::insert(T& item)
 template<class T>
 void LinkedList<T>::deleteNode(T& item)
 {
-	if (head == NULL)
+	if (pHead == NULL)
 	{
 		cerr << "empty list";
 	}
 	else
 	{
-		if (head->data == item)
+		if (pHead->data == item)
 		{
-			node<T>* headPointer = head;
+			node<T>* headPointer = pHead;
 
-			head = head->next;
+			pHead = pHead->pNext;
 			delete headPointer;
 
 			count--;
 
-			if (head == NULL)
+			if (pHead == NULL)
 			{
-				last = NULL;
+				pLast = NULL;
 			}
 		}
 		else
 		{
-			node<T>* pointerBefore = head;
-			node<T>* pointerToDelete = pointerBefore->next;
+			node<T>* pointerBefore = pHead;
+			node<T>* pointerToDelete = pointerBefore->pNext;
 
 			while (pointerToDelete != NULL && pointerToDelete->data != item)
 			{
 				pointerBefore = pointerToDelete;
-				pointerToDelete = pointerToDelete->next;
+				pointerToDelete = pointerToDelete->pNext;
 			}
 
 			if (pointerToDelete != NULL)
 			{
-				pointerBefore->next = pointerToDelete->next;
+				pointerBefore->pNext = pointerToDelete->pNext;
 
 				count--;
 
-				if (last == pointerToDelete)
+				if (pLast == pointerToDelete)
 				{
-					last = pointerBefore;
+					pLast = pointerBefore;
 				}
 
 				delete pointerToDelete;
@@ -146,26 +147,26 @@ void LinkedList<T>::destroyList()
 {
 	node<T> *headPointer;
 
-	while (head != NULL)
+	while (pHead != NULL)
 	{
-		headPointer = head;
-		head = head->next;
+		headPointer = pHead;
+		pHead = pHead->pNext;
 		delete headPointer;
 	}
 
-	last = NULL;
+	pLast = NULL;
 	count = 0;
 }
 
 template<class T>
 ostream& operator<<(ostream& output, LinkedList<T>& list)
 {
-	node<T> *headPointer = list.head;
+	node<T> *headPointer = list.pHead;
 
 	while (headPointer != NULL)
 	{
 		output << headPointer->data << " " << endl;
-		headPointer = headPointer->next;
+		headPointer = headPointer->pNext;
 	}
 	headPointer = NULL;
 	return output;

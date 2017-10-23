@@ -15,10 +15,10 @@ class OrderedLinkedList: public LinkedList<T>
 {
 	public:
 		OrderedLinkedList();
-		void insert(T&);
+		void insertNode(T&);
 		void deleteNode(T&);
-		bool has(T&);
-		T& search(T&);
+		bool hasNode(T&);
+		T& searchForNode(T&);
 		~OrderedLinkedList();
 
 };
@@ -38,7 +38,7 @@ void OrderedLinkedList<T>::deleteNode(T& itemToDelete)
 }
 
 template<class T>
-void OrderedLinkedList<T>::insert(T& itemToInsert)
+void OrderedLinkedList<T>::insertNode(T& itemToInsert)
 {
 	node<T> *newNode = new node<T>;
 
@@ -89,7 +89,7 @@ void OrderedLinkedList<T>::insert(T& itemToInsert)
 	this->count++;
 }
 template<class T>
-bool OrderedLinkedList<T>::has(T& itemToFind)
+bool OrderedLinkedList<T>::hasNode(T& itemToFind)
 {
 	if (this->head == NULL)
 	{
@@ -126,7 +126,7 @@ bool OrderedLinkedList<T>::has(T& itemToFind)
 }
 
 template<class T>
-inline T& OrderedLinkedList<T>::search(T& itemToFind)
+inline T& OrderedLinkedList<T>::searchForNode(T& itemToFind)
 {
 	if (this->head == NULL)
 	{

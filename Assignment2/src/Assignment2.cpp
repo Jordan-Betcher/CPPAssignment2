@@ -40,19 +40,19 @@ void runDeltaAirLines()
 
 		if (command == "A")
 		{
-			airLines.addAction();
+			airLines.addPassenger();
 		}
 		else if (command == "S")
 		{
-			airLines.searchAction();
+			airLines.searchForPassenger();
 		}
 		else if (command == "D")
 		{
-			airLines.deleteAction();
+			airLines.deletePassenger();
 		}
 		else if (command == "L")
 		{
-			airLines.listAction();
+			airLines.listPassengers();
 		}
 		else if (command == "Q")
 		{
