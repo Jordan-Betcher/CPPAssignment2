@@ -14,8 +14,37 @@ template<class T>
 class OrderedLinkedList : public LinkedList<T>
 {
 	public:
-		OrderedLinkedList(){};
-		~OrderedLinkedList(){};
+		OrderedLinkedList();
+
+		void insert(T&);
+		void deleteNode(T&);
+		T& search(T&);
+		~OrderedLinkedList();
 };
+
+template<class T>
+inline OrderedLinkedList<T>::OrderedLinkedList()
+{
+}
+
+template<class T>
+inline void OrderedLinkedList<T>::insert(T&)
+{
+}
+
+template<class T>
+inline void OrderedLinkedList<T>::deleteNode(T&)
+{
+}
+
+template<class T>
+inline T& OrderedLinkedList<T>::search(T&)
+{
+}
+
+template<class T>
+inline OrderedLinkedList<T>::~OrderedLinkedList()
+{
+}
 
 #endif /* ORDEREDLINKEDLIST_H_ */
