@@ -1,9 +1,9 @@
-/*
- * OrderedLinkedList.h
- *
- *  Created on: Oct 18, 2017
- *      Author: Betcher
- */
+//============================================================================
+// Name        : OrderedLinkedList.h
+// Author      : Jordan Betcher
+// Date	       : 10/23/2017
+// Description : OrderedLinkedList a LinkedList that inserts based on comparative operators
+//============================================================================
 
 #ifndef ORDEREDLINKEDLIST_H_
 #define ORDEREDLINKEDLIST_H_
@@ -23,93 +23,98 @@ class OrderedLinkedList: public LinkedList<T>
 
 };
 
+//Creates an OrderedLinkedList
 template<class T>
 OrderedLinkedList<T>::OrderedLinkedList()
 {
-	this->pHead = NULL;
-	this->pLast = NULL;
+	this->pFirstNode = NULL;
+	this->pLastNode = NULL;
 	this->count = 0;
 }
 
+//Deletes a Node in OrderedLinkedList
 template<class T>
 void OrderedLinkedList<T>::deleteNode(T& itemToDelete)
 {
 	this->deleteNode(itemToDelete);
 }
 
+//Inserts a Node into OrderedLinkedList in the proper order by comparison
 template<class T>
 void OrderedLinkedList<T>::insertNode(T& itemToInsert)
 {
 	node<T> *newNode = new node<T>;
 
 	newNode->data = itemToInsert;
-	newNode->pNext = NULL;
+	newNode->pNextNode = NULL;
 
-	if (this->pHead == NULL)
+	if (this->pFirstNode == NULL)
 	{
-		this->pHead = newNode;
-		this->pLast = newNode;
+		this->pFirstNode = newNode;
+		this->pLastNode = newNode;
 	}
 	else
 	{
 
-		if (this->pHead->data > itemToInsert)
+		if (this->pFirstNode->data > itemToInsert)
 		{
-			node<T>* nextNode = this->pHead;
-			this->pHead = newNode;
-			this->pHead->pNext = nextNode;
+			node<T>* nextNode = this->pFirstNode;
+			this->pFirstNode = newNode;
+			this->pFirstNode->pNextNode = nextNode;
 		}
 		else
 		{
-			node<T>* pointerBefore = this->pHead;
-			node<T>* pointerToFind = pointerBefore->pNext;
+			node<T>* pointerBefore = this->pFirstNode;
+			node<T>* pointerToFind = pointerBefore->pNextNode;
 
 			while (pointerToFind != NULL
 					&& pointerToFind->data < itemToInsert)
 			{
 				pointerBefore = pointerToFind;
-				pointerToFind = pointerToFind->pNext;
+				pointerToFind = pointerToFind->pNextNode;
 			}
 
 			if (pointerToFind != NULL)
 			{
-				pointerBefore->pNext = newNode;
-				newNode->pNext = pointerToFind;
+				pointerBefore->pNextNode = newNode;
+				newNode->pNextNode = pointerToFind;
 				delete pointerToFind;
 
 			}
 			else
 			{
-				this->pLast->pNext = newNode;
-				this->pLast = newNode;
+				this->pLastNode->pNextNode = newNode;
+				this->pLastNode = newNode;
 			}
 		}
 	}
 
 	this->count++;
 }
+
+//Searches if OrderedLinkedList contains a node with the itemToFind
 template<class T>
 bool OrderedLinkedList<T>::hasNode(T& itemToFind)
 {
-	if (this->pHead == NULL)
+	if (this->pFirstNode == NULL)
 	{
 
 	}
 	else
 	{
-		if (this->pHead->data == itemToFind)
+		if (this->pFirstNode->data == itemToFind)
 		{
 			return true;
 		}
 		else
 		{
-			node<T>* pointerBefore = this->pHead;
-			node<T>* pointerToFind = pointerBefore->pNext;
+			node<T>* pointerBefore = this->pFirstNode;
+			node<T>* pointerToFind = pointerBefore->pNextNode;
 
 			while (pointerToFind != NULL && pointerToFind->data != itemToFind)
 			{
 				pointerBefore = pointerToFind;
-				pointerToFind = pointerToFind->pNext;
+				pointerToFind = pointerToFind->pNextNode;
 			}
 
 			if (pointerToFind != NULL)
@@ -125,33 +130,34 @@ bool OrderedLinkedList<T>::hasNode(T& itemToFind)
 	return false;
 }
 
+//Searches for the itemToFind
 template<class T>
 inline T& OrderedLinkedList<T>::searchForNode(T& itemToFind)
 {
-	if (this->pHead == NULL)
+	if (this->pFirstNode == NULL)
 	{
 
 	}
 	else
 	{
-		if (this->pHead->data == itemToFind)
+		if (this->pFirstNode->data == itemToFind)
 		{
-			return this->pHead->data;
+			return this->pFirstNode->data;
 		}
 		else
 		{
-			node<T>* pointerBefore = this->pHead;
-			node<T>* pointerToFind = pointerBefore->pNext;
+			node<T>* pointerBefore = this->pFirstNode;
+			node<T>* pointerToFind = pointerBefore->pNextNode;
 
 			while (pointerToFind != NULL && pointerToFind->data != itemToFind)
 			{
 				pointerBefore = pointerToFind;
-				pointerToFind = pointerToFind->pNext;
+				pointerToFind = pointerToFind->pNextNode;
 			}
 
 			if (pointerToFind != NULL)
 			{
-				T found = pointerToFind->data;
+				T& found = pointerToFind->data;
 				delete pointerToFind;
 				return found;
 

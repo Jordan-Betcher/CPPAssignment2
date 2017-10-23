@@ -1,9 +1,9 @@
-/*
- * DeltaAirLines.h
- *
- *  Created on: Oct 23, 2017
- *      Author: Betcher
- */
+//============================================================================
+// Name        : DeltaAirLines.h
+// Author      : Jordan Betcher
+// Date	       : 10/23/2017
+// Description : DeltaAirLines header dealing with passengers
+//============================================================================
 
 #ifndef DELTAAIRLINES_H_
 #define DELTAAIRLINES_H_
@@ -20,7 +20,7 @@ class DeltaAirLines
 	private:
 		map<string, OrderedLinkedList<Passenger>> mFlights;
 		std::list<std::string> mFlightNumbers;
-		Passenger mStaticPassenger;
+		static Passenger msStaticPassenger;
 	public:
 		DeltaAirLines(std::list<std::string> flightNumbers);
 		void addPassenger();

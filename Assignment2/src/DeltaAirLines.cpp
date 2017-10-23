@@ -1,14 +1,15 @@
-/*
- * DeltaAirLines.cpp
- *
- *  Created on: Oct 23, 2017
- *      Author: Betcher
- */
+//============================================================================
+// Name        : DeltaAirLines.cpp
+// Author      : Jordan Betcher
+// Date	       : 10/23/2017
+// Description : DeltaAirLines class dealing with passengers
+//============================================================================
 
 #include "DeltaAirLines.h"
 #include <string>
 #include <list>
 
+//Creates DeltaAirLines
 DeltaAirLines::DeltaAirLines(list<std::string> flightNumbers)
 {
 	this->mFlightNumbers = flightNumbers;
@@ -21,6 +22,7 @@ DeltaAirLines::DeltaAirLines(list<std::string> flightNumbers)
 
 }
 
+//Adds a Passenger to your flight
 void DeltaAirLines::addPassenger()
 {
 	string flightNumber;
@@ -30,34 +32,35 @@ void DeltaAirLines::addPassenger()
 
 	string firstName;
 	string firstNamePrompt = "Enter first name: ";
-	firstName = getValidInput(firstNamePrompt, mStaticPassenger.isValidFirstName);
+	firstName = getValidInput(firstNamePrompt, msStaticPassenger.isValidFirstName);
 
 	string lastName;
 	string lastNamePrompt = "Enter last name: ";
-	lastName = getValidInput(lastNamePrompt, mStaticPassenger.isValidLastName);
+	lastName = getValidInput(lastNamePrompt, msStaticPassenger.isValidLastName);
 
 	string address;
 	string addressPrompt = "Enter address: ";
-	address = getValidInput(addressPrompt, mStaticPassenger.isValidAddress);
+	address = getValidInput(addressPrompt, msStaticPassenger.isValidAddress);
 
 	string phoneNumber;
 	string phoneNumberPrompt = "Enter phone: ";
 	phoneNumber = getValidInput(phoneNumberPrompt,
-	        mStaticPassenger.isValidPhoneNumber);
+	        msStaticPassenger.isValidPhoneNumber);
 
 	Passenger passenger(firstName, lastName, address, phoneNumber);
 	mFlights[flightNumber].insertNode(passenger);
 }
 
+//Searches for a passenger in your flight
 void DeltaAirLines::searchForPassenger()
 {
 	string firstName;
 	string firstNamePrompt = "Enter first name: ";
-	firstName = getValidInput(firstNamePrompt, mStaticPassenger.isValidFirstName);
+	firstName = getValidInput(firstNamePrompt, msStaticPassenger.isValidFirstName);
 
 	string lastName;
 	string lastNamePrompt = "Enter last name: ";
-	lastName = getValidInput(lastNamePrompt, mStaticPassenger.isValidLastName);
+	lastName = getValidInput(lastNamePrompt, msStaticPassenger.isValidLastName);
 
 	Passenger comparablePassenger(firstName, lastName);
 
@@ -84,6 +87,7 @@ void DeltaAirLines::searchForPassenger()
 	}
 }
 
+//Deletes a passenger from your flight
 void DeltaAirLines::deletePassenger()
 {
 	string flightNumber;
@@ -93,17 +97,18 @@ void DeltaAirLines::deletePassenger()
 
 	string firstName;
 	string firstNamePrompt = "Enter first name: ";
-	firstName = getValidInput(firstNamePrompt, mStaticPassenger.isValidFirstName);
+	firstName = getValidInput(firstNamePrompt, msStaticPassenger.isValidFirstName);
 
 	string lastName;
 	string lastNamePrompt = "Enter last name: ";
-	lastName = getValidInput(lastNamePrompt, mStaticPassenger.isValidLastName);
+	lastName = getValidInput(lastNamePrompt, msStaticPassenger.isValidLastName);
 
 	Passenger passengerToDelete(firstName, lastName);
 	mFlights[flightNumber].deleteNode(passengerToDelete);
 
 }
 
+//Lists Passengers in your flight
 void DeltaAirLines::listPassengers()
 {
 	string flightNumber;
@@ -112,6 +117,7 @@ void DeltaAirLines::listPassengers()
 	cout << mFlights[flightNumber];
 }
 
+//Takes a Prompt and Check if it is valid
 string DeltaAirLines::getValidInput(string prompt, bool isValid(string))
 {
 	string input;
@@ -130,6 +136,7 @@ string DeltaAirLines::getValidInput(string prompt, bool isValid(string))
 
 }
 
+//Deletes Delta Air Lines
 DeltaAirLines::~DeltaAirLines()
 {
 }

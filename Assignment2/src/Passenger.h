@@ -1,9 +1,9 @@
-/*
- * Passenger.h
- *
- *  Created on: Oct 18, 2017
- *      Author: Betcher
- */
+//============================================================================
+// Name        : Passenger.h
+// Author      : Jordan Betcher
+// Date	       : 10/23/2017
+// Description : Passenger header that holds firstName, lastName, address, phoneNumber
+//============================================================================
 
 #ifndef PASSENGER_H_
 #define PASSENGER_H_

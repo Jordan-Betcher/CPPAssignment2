@@ -1,9 +1,8 @@
 //============================================================================
 // Name        : Assignment2.cpp
-// Author      : Jordan
-// Version     :
-// Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
+// Author      : Jordan Betcher
+// Date	       : 10/23/2017
+// Description : Assignment2 for C++ class, create and modify an OrderedLinkedList
 //============================================================================
 
 #include <iostream>
@@ -22,6 +21,7 @@ int main()
 	return 0;
 }
 
+//Runs Delta AirLines
 void runDeltaAirLines()
 {
 	list<string> flightNumbers = { "100", "200", "300", "400" };
