@@ -17,6 +17,7 @@ class OrderedLinkedList: public LinkedList<T>
 		OrderedLinkedList();
 		void insert(T&);
 		void deleteNode(T&);
+		bool has(T&);
 		T& search(T&);
 		~OrderedLinkedList();
 
@@ -57,23 +58,59 @@ void OrderedLinkedList<T>::insert(T& itemToInsert)
 
 	this->count++;
 }
-
 template<class T>
-inline T& OrderedLinkedList<T>::search(T& itemToFind)
+bool OrderedLinkedList<T>::has(T& itemToFind)
 {
-	if (head == NULL)
+	if (this->head == NULL)
 	{
 
 	}
 	else
 	{
-		if (head->data == itemToFind)
+		if (this->head->data == itemToFind)
 		{
-			return head->data;
+			return true;
 		}
 		else
 		{
-			node<T>* pointerBefore = head;
+			node<T>* pointerBefore = this->head;
+			node<T>* pointerToFind = pointerBefore->next;
+
+			while (pointerToFind != NULL && pointerToFind->data != itemToFind)
+			{
+				pointerBefore = pointerToFind;
+				pointerToFind = pointerToFind->next;
+			}
+
+			if (pointerToFind != NULL)
+			{
+				T found = pointerToFind->data;
+				delete pointerToFind;
+				return true;
+
+			}
+		}
+	}
+
+	return false;
+}
+
+template<class T>
+inline T& OrderedLinkedList<T>::search(T& itemToFind)
+{
+	if (this->head == NULL)
+	{
+
+	}
+	else
+	{
+		if (this->head->data == itemToFind)
+		{
+			return this->head->data;
+		}
+		else
+		{
+			node<T>* pointerBefore = this->head;
 			node<T>* pointerToFind = pointerBefore->next;
 
 			while (pointerToFind != NULL && pointerToFind->data != itemToFind)
