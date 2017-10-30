@@ -16,7 +16,6 @@ class OrderedLinkedList: public LinkedList<T>
 	public:
 		OrderedLinkedList();
 		void insertNode(T& itemToInsert);
-		void deleteNode(T& itemToDelete);
 		bool hasNode(T& itemToFind);
 		T& searchForNode(T& itemToFind);
 		~OrderedLinkedList();
@@ -30,13 +29,6 @@ OrderedLinkedList<T>::OrderedLinkedList()
 	this->pFirstNode = NULL;
 	this->pLastNode = NULL;
 	this->count = 0;
-}
-
-//Deletes a Node in OrderedLinkedList
-template<class T>
-void OrderedLinkedList<T>::deleteNode(T& itemToDelete)
-{
-	this->deleteNode(itemToDelete);
 }
 
 //Inserts a Node into OrderedLinkedList in the proper order by comparison
